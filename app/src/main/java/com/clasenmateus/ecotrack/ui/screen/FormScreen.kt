@@ -11,7 +11,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.clasenmateus.ecotrack.data.DistanceInput
+import com.clasenmateus.ecotrack.data.FuelTypeSelector
 import com.clasenmateus.ecotrack.data.VehicleTypeSelector
+import com.clasenmateus.ecotrack.ui.button.ResultButton
 
 /**
 * Created by Mateus H. Clasen on 19/04/2025.
@@ -30,5 +33,19 @@ fun FormScreen (){
         VehicleTypeSelector(vehicleType) { type ->
             // Update vehicleType state
         }
+        Spacer(modifier = Modifier.height(8.dp))
+
+        FuelTypeSelector(fuelType) { type ->
+            // Update fuelType state
+        }
+        Spacer(modifier = Modifier.height(8.dp))
+
+        DistanceInput()
+        Spacer(modifier = Modifier.height(16.dp))
+
+        ResultButton {
+            // Handle result button click
+        }
+
 }
 }
