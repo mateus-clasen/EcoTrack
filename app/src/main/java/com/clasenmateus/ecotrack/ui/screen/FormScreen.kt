@@ -1,10 +1,14 @@
 package com.clasenmateus.ecotrack.ui.screen
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.material.icons.Icons
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -20,12 +24,18 @@ import com.clasenmateus.ecotrack.data.DistanceInput
 import com.clasenmateus.ecotrack.data.FuelTypeSelector
 import com.clasenmateus.ecotrack.data.VehicleTypeSelector
 import com.clasenmateus.ecotrack.ui.button.ResultButton
+import com.clasenmateus.ecotrack.ui.theme.Background
+import com.clasenmateus.ecotrack.ui.theme.Green1
+import com.clasenmateus.ecotrack.ui.theme.Green2
+import com.clasenmateus.ecotrack.ui.theme.Green3
 
 /**
 * Created by Mateus H. Clasen on 19/04/2025.
  */
 @Composable
-fun FormScreen (){
+fun FormScreen (
+modifier: Modifier = Modifier
+){
     val (selectedVehicleType, setSelectedVehicleType) = remember { mutableStateOf("Carro") }
     val vehicleTypes = listOf("Carro", "Moto", "Caminhão", "Ônibus")
 
@@ -38,11 +48,16 @@ fun FormScreen (){
     var distance by remember { mutableStateOf(0f) }
 
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize().background(Background),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text("EcoTrack", style = MaterialTheme.typography.headlineLarge)
+        //Colocar o ícone aqui
+
+        Text("EcoTrack", style = MaterialTheme.typography.headlineLarge, color = Green3)
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Text("Calcule a emissão de carbono de seu veículo", style = MaterialTheme.typography.bodyMedium, color = Green1)
         Spacer(modifier = Modifier.height(16.dp))
 
         VehicleTypeSelector(
