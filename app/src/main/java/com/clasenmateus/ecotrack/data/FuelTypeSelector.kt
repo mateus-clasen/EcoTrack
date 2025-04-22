@@ -43,7 +43,6 @@ fun FuelTypeSelector(
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(58.dp)
             .clickable {
                 expanded = !expanded
             } // Torna o Box clicável para expandir/recolher o menu
