@@ -18,6 +18,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.clasenmateus.ecotrack.data.DistanceInput
@@ -53,8 +56,9 @@ modifier: Modifier = Modifier
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         //Colocar o ícone aqui
+        //Lembrar de adicionar no projeto a fonte Poppins
 
-        Text("EcoTrack", style = MaterialTheme.typography.headlineLarge, color = Green3)
+        Text("EcoTrack", style = MaterialTheme.typography.headlineLarge, color = Green3, fontWeight = FontWeight.Bold)
         Spacer(modifier = Modifier.height(16.dp))
 
         Text("Calcule a emissão de carbono de seu veículo", style = MaterialTheme.typography.bodyMedium, color = Green1)
