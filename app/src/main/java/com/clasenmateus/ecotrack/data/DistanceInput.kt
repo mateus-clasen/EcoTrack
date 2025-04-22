@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
  */
 @Composable
 fun DistanceInput(
-    distance: Float,
+    distance: Float.Companion,
     onDistanceChanged: (Float) -> Unit
 ) {
     val distance by remember {mutableStateOf("")}
@@ -44,5 +44,8 @@ fun DistanceInput(
 @Preview
 @Composable
 fun DistanceInputPreview() {
-    DistanceInput()
+    DistanceInput(
+        Float,
+        onDistanceChanged = TODO()
+    )
 }

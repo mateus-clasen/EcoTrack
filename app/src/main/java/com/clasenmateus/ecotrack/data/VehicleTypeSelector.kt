@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.DropdownMenu
@@ -30,7 +29,8 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun VehicleTypeSelector(
     selectedType: String,
-    onTypeSelected: (String) -> Unit
+    onTypeSelected: (String) -> Unit,
+    vehicleTypes: List<String>
 ) {
     // Declara um estado mutable para controlar a expansão do menu dropdown
     var expanded by remember { mutableStateOf(false) }
@@ -42,6 +42,7 @@ fun VehicleTypeSelector(
     Box(
         modifier = Modifier
             .fillMaxWidth()
+            .padding(58.dp)
             .clickable {
                 expanded = !expanded
             } // Torna o Box clicável para expandir/recolher o menu
@@ -84,7 +85,17 @@ fun VehicleTypeSelector(
 
 @Composable
 @Preview
-fun VehicleTypeSelectorPreview() {
-    val selectedType by remember { mutableStateOf("Carro") }
+fun VehicleTypeSelectorPreviewLarge() {
+    val selectedType by remember { mutableStateOf("") }
     val onTypeSelected: (String) -> Unit = { }
+
+    VehicleTypeSelector(
+        selectedType = selectedType,
+        onTypeSelected = onTypeSelected,
+        vehicleTypes = listOf(
+            "Carro", "Moto", "Caminhão", "Ônibus",
+            "Trator", "Barco", "Avião", "Bicicleta",
+            "Patinete", "Scooter", "Jetski", "Iate"
+        )
+    )
 }

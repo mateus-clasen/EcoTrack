@@ -5,6 +5,5 @@ import androidx.compose.runtime.Composable
 /**
  * Created by Mateus H. Clasen on 20/04/2025.
  */
-@Composable
-class UserAverage {
-}
+//@Composable
+//class UserAverage { }

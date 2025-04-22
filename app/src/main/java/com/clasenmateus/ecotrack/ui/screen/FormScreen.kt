@@ -30,17 +30,17 @@ fun FormScreen (){
         Text("EcoTrack", style = MaterialTheme.typography.headlineLarge)
         Spacer(modifier = Modifier.height(16.dp))
 
-        VehicleTypeSelector(vehicleType) { type ->
-            // Update vehicleType state
-        }
+//        VehicleTypeSelector(vehicleType) { type ->
+//            // Update vehicleType state
+//        }
+//        Spacer(modifier = Modifier.height(8.dp))
+//
+//        FuelTypeSelector(fuelType) { type ->
+//            // Update fuelType state
+//        }
         Spacer(modifier = Modifier.height(8.dp))
 
-        FuelTypeSelector(fuelType) { type ->
-            // Update fuelType state
-        }
-        Spacer(modifier = Modifier.height(8.dp))
-
-        DistanceInput()
+        //DistanceInput()
         Spacer(modifier = Modifier.height(16.dp))
 
         ResultButton {
