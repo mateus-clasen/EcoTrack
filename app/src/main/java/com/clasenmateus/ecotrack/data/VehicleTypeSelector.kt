@@ -15,10 +15,13 @@ import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 /**
@@ -39,7 +42,9 @@ fun VehicleTypeSelector(
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable { expanded = !expanded } // Torna o Box clicável para expandir/recolher o menu
+            .clickable {
+                expanded = !expanded
+            } // Torna o Box clicável para expandir/recolher o menu
             .padding(16.dp),
         contentAlignment = Alignment.CenterStart
     ) {
@@ -68,11 +73,18 @@ fun VehicleTypeSelector(
                     onClick = {
                         onTypeSelected(type) // Chama a função onTypeSelected com o tipo selecionado
                         expanded = false // Fecha o menu após a seleção
-                    }
-                ) {
-                    Text(type)
-                }
+                    },
+                    text = { Text(type) }
+                )
+
             }
         }
     }
+}
+
+@Composable
+@Preview
+fun VehicleTypeSelectorPreview() {
+    val selectedType by remember { mutableStateOf("Carro") }
+    val onTypeSelected: (String) -> Unit = { }
 }
