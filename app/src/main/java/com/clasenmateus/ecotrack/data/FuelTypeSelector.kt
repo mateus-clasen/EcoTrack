@@ -31,7 +31,7 @@ import androidx.compose.ui.unit.dp
 fun FuelTypeSelector(
     selectedType: String,
     onTypeSelected: (String) -> Unit,
-    vehicleTypes: List<String>
+    fuelTypes: List<String>
 ) {
     // Declara um estado mutable para controlar a expansão do menu dropdown
     var expanded by remember { mutableStateOf(false) }
@@ -92,10 +92,8 @@ fun FuelTypeSelectorPreviewLarge() {
     FuelTypeSelector(
         selectedType = selectedType,
         onTypeSelected = onTypeSelected,
-        vehicleTypes = listOf(
-            "Carro", "Moto", "Caminhão", "Ônibus",
-            "Trator", "Barco", "Avião", "Bicicleta",
-            "Patinete", "Scooter", "Jetski", "Iate"
+        fuelTypes = listOf(
+            "Gasolina", "Álcool", "Diesel"
         )
     )
 }

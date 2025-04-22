@@ -91,10 +91,6 @@ fun VehicleTypeSelectorPreviewLarge() {
     VehicleTypeSelector(
         selectedType = selectedType,
         onTypeSelected = onTypeSelected,
-        vehicleTypes = listOf(
-            "Carro", "Moto", "Caminhão", "Ônibus",
-            "Trator", "Barco", "Avião", "Bicicleta",
-            "Patinete", "Scooter", "Jetski", "Iate"
-        )
+        vehicleTypes = listOf("Carro", "Moto", "Caminhão", "Ônibus")
     )
 }

@@ -8,8 +8,13 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.clasenmateus.ecotrack.data.DistanceInput
 import com.clasenmateus.ecotrack.data.FuelTypeSelector
@@ -21,6 +26,16 @@ import com.clasenmateus.ecotrack.ui.button.ResultButton
  */
 @Composable
 fun FormScreen (){
+    val (selectedVehicleType, setSelectedVehicleType) = remember { mutableStateOf("Carro") }
+    val vehicleTypes = listOf("Carro", "Moto", "Caminhão", "Ônibus")
+
+    val onVehicleTypeSelected: (String) -> Unit = { type ->
+        setSelectedVehicleType(type)
+
+    }
+    val (fuelType, setFuelType) = remember { mutableStateOf("Gasolina") }
+    val fuelTypes = listOf("Gasolina", "Álcool", "Diesel")
+    var distance by remember { mutableStateOf(0f) }
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -30,17 +45,27 @@ fun FormScreen (){
         Text("EcoTrack", style = MaterialTheme.typography.headlineLarge)
         Spacer(modifier = Modifier.height(16.dp))
 
-//        VehicleTypeSelector(vehicleType) { type ->
-//            // Update vehicleType state
-//        }
-//        Spacer(modifier = Modifier.height(8.dp))
-//
-//        FuelTypeSelector(fuelType) { type ->
-//            // Update fuelType state
-//        }
+        VehicleTypeSelector(
+            selectedType = selectedVehicleType,
+            onTypeSelected = onVehicleTypeSelected,
+            vehicleTypes = vehicleTypes
+        )
         Spacer(modifier = Modifier.height(8.dp))
 
-        //DistanceInput()
+        FuelTypeSelector(
+            selectedType = fuelType,
+            onTypeSelected = setFuelType,
+            fuelTypes = fuelTypes
+        )
+        Spacer(modifier = Modifier.height(8.dp))
+
+        DistanceInput(
+            distance = distance,
+        onDistanceChanged = { newDistance ->
+            distance = newDistance
+            // Aqui você pode realizar outras ações, como atualizar o estado da tela
+        }
+        )
         Spacer(modifier = Modifier.height(16.dp))
 
         ResultButton {
@@ -48,4 +73,10 @@ fun FormScreen (){
         }
 
 }
+}
+
+@Preview
+@Composable
+fun FormScreenPreview() {
+    FormScreen()
 }
