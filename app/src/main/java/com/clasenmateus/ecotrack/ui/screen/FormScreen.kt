@@ -33,35 +33,46 @@ import com.clasenmateus.ecotrack.ui.theme.Green2
 import com.clasenmateus.ecotrack.ui.theme.Green3
 
 /**
-* Created by Mateus H. Clasen on 19/04/2025.
+ * Created by Mateus H. Clasen on 19/04/2025.
  */
 @Composable
-fun FormScreen (
-modifier: Modifier = Modifier
-){
-    val (selectedVehicleType, setSelectedVehicleType) = remember { mutableStateOf("Carro") }
+fun FormScreen(
+    modifier: Modifier = Modifier
+) {
+    val (selectedVehicleType, setSelectedVehicleType) = remember { mutableStateOf("") }
     val vehicleTypes = listOf("Carro", "Moto", "Caminhão", "Ônibus")
 
     val onVehicleTypeSelected: (String) -> Unit = { type ->
         setSelectedVehicleType(type)
 
     }
-    val (fuelType, setFuelType) = remember { mutableStateOf("Gasolina") }
+    val (fuelType, setFuelType) = remember { mutableStateOf("") }
     val fuelTypes = listOf("Gasolina", "Álcool", "Diesel")
     var distance by remember { mutableStateOf(0f) }
 
     Column(
-        modifier = Modifier.fillMaxSize().background(Background),
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Background),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         //Colocar o ícone aqui
         //Lembrar de adicionar no projeto a fonte Poppins
 
-        Text("EcoTrack", style = MaterialTheme.typography.headlineLarge, color = Green3, fontWeight = FontWeight.Bold)
+        Text(
+            "EcoTrack",
+            style = MaterialTheme.typography.headlineLarge,
+            color = Green3,
+            fontWeight = FontWeight.Bold
+        )
         Spacer(modifier = Modifier.height(16.dp))
 
-        Text("Calcule a emissão de carbono de seu veículo", style = MaterialTheme.typography.bodyMedium, color = Green1)
+        Text(
+            "Calcule a emissão de carbono de seu veículo",
+            style = MaterialTheme.typography.bodyMedium,
+            color = Green1
+        )
         Spacer(modifier = Modifier.height(16.dp))
 
         VehicleTypeSelector(
@@ -80,10 +91,10 @@ modifier: Modifier = Modifier
 
         DistanceInput(
             distance = distance,
-        onDistanceChanged = { newDistance ->
-            distance = newDistance
-            // Aqui você pode realizar outras ações, como atualizar o estado da tela
-        }
+            onDistanceChanged = { newDistance ->
+                distance = newDistance
+                // Aqui você pode realizar outras ações, como atualizar o estado da tela
+            }
         )
         Spacer(modifier = Modifier.height(16.dp))
 
@@ -91,7 +102,7 @@ modifier: Modifier = Modifier
             // Handle result button click
         }
 
-}
+    }
 }
 
 @Preview
